@@ -1,0 +1,7 @@
+{
+  "name": "learnRoutesNew",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
