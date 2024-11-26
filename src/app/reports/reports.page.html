@@ -1,0 +1,92 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="header">
+    <h1>Users</h1>
+  </div>
+  <div id="container">
+
+    <div id="user-list">
+      <ion-list>
+        <ion-item *ngFor="let user of users">
+          <ion-label>
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <p>{{ user.email }} | {{ user.phone_number }}</p>
+            <p>{{ user.address }} | Gender: {{ user.gender }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Add New User</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div id="form-container">
+          <form [formGroup]="reportForm" (ngSubmit)="onSubmit()">
+            <ion-list>
+              <ion-item>
+                <ion-input label="First Name" formControlName="first_name" label-placement="floating" fill="outline"
+                  placeholder="Enter First Name"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-input label="Last Name" formControlName="last_name" label-placement="floating" fill="outline"
+                  placeholder="Enter Last Name"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-input label="Email" formControlName="email" label-placement="floating" fill="outline"
+                  placeholder="Enter Email"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-input label="Phone Number" formControlName="phone_number" label-placement="floating" fill="outline"
+                  placeholder="Enter Phone Number"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-input label="Address" formControlName="address" label-placement="floating" fill="outline"
+                  placeholder="Enter Address"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-select label="Gender" formControlName="gender" label-placement="floating" fill="outline" [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One">
+                  <ion-select-option value="male">Male</ion-select-option>
+                  <ion-select-option value="female">Female</ion-select-option>
+                  <ion-select-option value="other">Other</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <div id="action-butttons">
+                <ion-item>
+                  <ion-button expand="block" type="reset">
+                    <ion-icon name="refresh-circle-outline"></ion-icon>
+                    <ion-label>Reset</ion-label>
+                  </ion-button>
+                </ion-item>
+                <ion-item>
+                  <ion-button expand="block" color="primary" type="submit">
+                    <ion-icon name="add-circle-outline"></ion-icon>
+                    <ion-label>Submit</ion-label>
+                  </ion-button>
+                </ion-item>
+
+              </div>
+            </ion-list>
+          </form>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
