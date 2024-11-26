@@ -7,11 +7,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div id="container">
+    <ion-button expand="block" routerLink="/post">Post</ion-button>
+    <ion-button expand="block" routerLink="/reports">Reports</ion-button>
+  </div>
 </ion-content>

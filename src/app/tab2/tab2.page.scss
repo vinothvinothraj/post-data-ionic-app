@@ -1,0 +1,10 @@
+ion-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    .signature-container ion-card {
+        height: 150px;
+    }
+}
