@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar class="ion-text-center">
     <ion-title>
       Signature
@@ -27,4 +27,46 @@
     </div>
   </ion-card>
   <img src='{{ signatureImg }}' />
+</ion-content> -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar class="ion-text-center">
+    <ion-title>Signature Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="sendSignature()">
+    <ion-card>
+      <ion-item>
+        <ion-label position="stacked">Name</ion-label>
+        <ion-input formControlName="name" placeholder="Enter your name"></ion-input>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <div class="signature-container">
+        <signature-pad [options]="signaturePadOptions"></signature-pad>
+      </div>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button color="danger" expand="block" (click)="clearSignature()">Clear</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="secondary" expand="block" (click)="finishSignature()">Finish</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <div *ngIf="signatureImg">
+      <ion-card>
+        <img [src]="signatureImg" alt="Signature Preview" />
+      </ion-card>
+    </div>
+
+    <ion-button expand="block" color="primary" type="submit">Send Signature</ion-button>
+  </form>
 </ion-content>
